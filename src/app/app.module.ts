@@ -19,12 +19,16 @@ import { MatToolbarModule,
  } from '@angular/material';
 import { HomeComponent } from './pages/home/home.component';
 import { DetailComponent } from './pages/detail/detail.component';
+import { P404Component } from './pages/p404/p404.component';
+import { SearchBarComponent } from './common/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DetailComponent
+    DetailComponent,
+    P404Component,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,

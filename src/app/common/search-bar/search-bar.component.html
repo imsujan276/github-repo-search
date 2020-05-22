@@ -1,0 +1,32 @@
+<div>
+    <form (ngSubmit)="onSearch()" class="flex">
+        <mat-form-field class="margin-right-15 full-width">
+            <mat-label>Search Gitub Repository</mat-label>
+            <input matInput placeholder="Github Repository" value="" [(ngModel)]="data.searchItem"
+                [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Search </button>
+    </form>
+
+    <div>
+        Search Options:
+    </div>
+    <div class="flex">
+        <mat-form-field class="margin-right-15 width-135">
+            <mat-label>Sort By</mat-label>
+            <mat-select [(ngModel)]="data.sortBy" (selectionChange)="onSortByChange($event.value)">
+                <mat-option value="stars">Stars</mat-option>
+                <mat-option value="forks">Forks</mat-option>
+                <mat-option value="updated">Updated Date</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class=" width-135">
+            <mat-label>Per Page</mat-label>
+            <mat-select [(ngModel)]="data.perPage" (selectionChange)="onPerPageChange($event.value)">
+                <mat-option value="25">25</mat-option>
+                <mat-option value="50">50</mat-option>
+                <mat-option value="75">75</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>

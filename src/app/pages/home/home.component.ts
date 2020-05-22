@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,14 +11,15 @@ export class HomeComponent implements OnInit {
 
   totalRepositories = 1;
   page = 1;
-  perPage = 25;
   repositories = [];
-  searchItem='';
   loading = false;
-  sortBy = ""
+  searchItem = '';
+  perPage = 25;
+  sortBy = '';
 
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService,
+    private router: Router
   ) { }
 
   ngOnInit() { 
@@ -27,8 +29,16 @@ export class HomeComponent implements OnInit {
     this.searchRepository()
   }
 
+  searchGithub(event){
+    console.log(event)
+    this.searchItem = event['searchItem'];
+    this.perPage = event['perPage'];
+    this.sortBy = event['sortBy'];
+    this.page = 1;
+    this.searchRepository()
+  }
+
   searchRepository(){
-    if(this.searchItem.length < 1) return;
     this.repositories = [];
     this.loading = true;
     this.apiService.searchGithubRepository(this.searchItem, this.perPage, this.page, this.sortBy).subscribe((data: any[])=>{
@@ -52,18 +62,8 @@ export class HomeComponent implements OnInit {
     return this.totalRepositories / this.perPage
    }
 
-   onPerPageChange(perPage){
-     console.log(perPage)
-     this.perPage = perPage;
-     this.page = 1;
-     this.searchRepository()
-   }
-
-   onSortByChange(sortBy){
-    console.log(sortBy)
-    this.sortBy = sortBy;
-    this.page = 1;
-    this.searchRepository()
+   gotoDetailsPage(owner, repository_name){
+    this.router.navigate(['/repository/'+owner+"/"+repository_name])
    }
 
 }

@@ -4,6 +4,18 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.container{
+    padding: 15px;
+}
+
+.card-header-image {
+    background-image: url('https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png');
+    background-size: cover;
+  }
+
+.width-135{
+    width: 135px;
+}
 
 .full-width{
     width: 100%;
@@ -31,4 +43,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .margin-right-15{
     margin-right: 10px;
+}
+
+.center-text{
+    text-align: center;
+}
+
+.break-word{
+    word-break: break-word;
 }
