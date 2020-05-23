@@ -1,11 +1,3 @@
-@mixin fontSizeMixin {
-    @for $i from 10 through 50 {
-        .font-#{$i} {
-            font-size: #{$i}px !important;
-        }
-    }
-}
-
 @mixin heightWidthMixin {
     @for $i from 0 through 500 {
         .width-#{$i} {
@@ -19,14 +11,6 @@
         }
         .height-vh-#{$i} {
             height: #{$i}vh !important;
-        }
-    }
-}
-
-@mixin fontWeightMixin {
-    @for $i from 400 through 700 {
-        .font-weight-#{$i} {
-            font-weight: #{$i} !important;
         }
     }
 }

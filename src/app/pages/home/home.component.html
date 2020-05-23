@@ -38,8 +38,8 @@
     </div>
 
     <div class="flex justify-center padding-top-50" *ngIf="repositories.length > 0">
-        <button mat-raised-button color="primary" (click)="previousPage()" *ngIf="page > 1">Previous </button>&nbsp;
+        <button mat-raised-button color="primary" (click)="previousPage()" *ngIf="page > 1">Previous Page</button>&nbsp;
         {{page}} of {{lastPage()}}
-        &nbsp;<button mat-raised-button color="primary" (click)="nextPage()">Next </button>
+        &nbsp;<button mat-raised-button color="primary" (click)="nextPage()">Next Page</button>
     </div>
 </div>
