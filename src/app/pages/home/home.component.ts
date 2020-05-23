@@ -16,18 +16,14 @@ export class HomeComponent implements OnInit {
   searchItem = '';
   perPage = 25;
   sortBy = '';
+  breakpoint = 1;
 
   constructor(
     private apiService: ApiService,
     private router: Router
   ) { }
 
-  ngOnInit() { 
-  }
-
-  onSearch(){
-    this.searchRepository()
-  }
+  ngOnInit() {}
 
   searchGithub(event){
     console.log(event)
@@ -59,7 +55,7 @@ export class HomeComponent implements OnInit {
   }
 
   lastPage() {
-    return this.totalRepositories / this.perPage
+    return Math.floor(this.totalRepositories / this.perPage)
    }
 
    gotoDetailsPage(owner, repository_name){

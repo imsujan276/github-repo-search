@@ -1,0 +1,79 @@
+@mixin fontSizeMixin {
+    @for $i from 10 through 50 {
+        .font-#{$i} {
+            font-size: #{$i}px !important;
+        }
+    }
+}
+
+@mixin heightWidthMixin {
+    @for $i from 0 through 500 {
+        .width-#{$i} {
+            width: #{$i}px !important;
+        }
+        .width-vw-#{$i} {
+            width: #{$i}vw !important;
+        }
+        .height-#{$i} {
+            height: #{$i}px !important;
+        }
+        .height-vh-#{$i} {
+            height: #{$i}vh !important;
+        }
+    }
+}
+
+@mixin fontWeightMixin {
+    @for $i from 400 through 700 {
+        .font-weight-#{$i} {
+            font-weight: #{$i} !important;
+        }
+    }
+}
+
+@mixin marginPaddingMixin {
+    @for $i from 0 through 500 {
+        .margin-#{$i} {
+            margin: #{$i}px !important;
+        }
+        .margin-top-#{$i} {
+            margin-top: #{$i}px !important;
+        }
+        .margin-top--#{$i} {
+            margin-top: -#{$i}px !important;
+        }
+        .margin-bottom-#{$i} {
+            margin-bottom: #{$i}px !important;
+        }
+        .margin-bottom--#{$i} {
+            margin-bottom: -#{$i}px !important;
+        }
+        .margin-left-#{$i} {
+            margin-left: #{$i}px !important;
+        }
+        .margin-left--#{$i} {
+            margin-left: -#{$i}px !important;
+        }
+        .margin-right-#{$i} {
+            margin-right: #{$i}px !important;
+        }
+        .margin-right--#{$i} {
+            margin-right: -#{$i}px !important;
+        }
+        .padding-#{$i} {
+            padding: #{$i}px !important;
+        }
+        .padding-top-#{$i} {
+            padding-top: #{$i}px !important;
+        }
+        .padding-bottom-#{$i} {
+            padding-bottom: #{$i}px !important;
+        }
+        .padding-left-#{$i} {
+            padding-left: #{$i}px !important;
+        }
+        .padding-right-#{$i} {
+            padding-right: #{$i}px !important;
+        }
+    }
+}

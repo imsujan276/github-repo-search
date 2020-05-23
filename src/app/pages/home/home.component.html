@@ -1,40 +1,41 @@
-<div class="container">
+<div class="padding-15">
     <app-search-bar (search)="searchGithub($event)"></app-search-bar>
 
     <div class="full-width flex justify-center" *ngIf="loading">
-        <mat-spinner></mat-spinner>
+        <mat-spinner [diameter]="50"></mat-spinner>
     </div>
 
-    <mat-card *ngFor="let repository of repositories" style="margin-top:10px;"
-        (click)="gotoDetailsPage(repository.owner.login, repository.name)">
-        <mat-card-header>
-            <div mat-card-avatar class="card-header-image"></div>
-            <mat-card-title class=" break-word">{{repository?.name}}</mat-card-title>
-            <mat-card-subtitle class=" break-word">- {{repository?.owner?.login}}</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-            <p>
-                {{repository?.description}}
-            </p>
-            <p class="float-right padding-bottom-20">
-                Updated at: {{repository?.updated_at | date:'yyyy-mm-dd hh:mma'}}
-            </p>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-button>
-                <mat-icon>star</mat-icon>
-                {{repository?.stargazers_count}}
-            </button>
-            <button mat-button>
-                <mat-icon>remove_red_eye</mat-icon>
-                {{repository?.watchers_count}}
-            </button>
-            <button mat-button>
-                <mat-icon>gavel</mat-icon>
-                {{repository?.forks_count}}
-            </button>
-        </mat-card-actions>
-    </mat-card>
+    <div *ngFor="let repository of repositories" class="card-container">
+        <mat-card class="margin-top-10" (click)="gotoDetailsPage(repository.owner.login, repository.name)">
+            <mat-card-header>
+                <div mat-card-avatar class="card-header-image"></div>
+                <mat-card-title class="break-word">{{repository?.name}}</mat-card-title>
+                <mat-card-subtitle class="break-word">- {{repository?.owner?.login}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                    {{repository?.description}}
+                </p>
+                <p class="right-align padding-bottom-20">
+                    Updated at: {{repository?.updated_at | date:'yyyy-mm-dd hh:mma'}}
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button>
+                    <mat-icon>star</mat-icon>
+                    {{repository?.stargazers_count}}
+                </button>
+                <button mat-button>
+                    <mat-icon>remove_red_eye</mat-icon>
+                    {{repository?.watchers_count}}
+                </button>
+                <button mat-button>
+                    <mat-icon>gavel</mat-icon>
+                    {{repository?.forks_count}}
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
 
     <div class="flex justify-center padding-top-50" *ngIf="repositories.length > 0">
         <button mat-raised-button color="primary" (click)="previousPage()" *ngIf="page > 1">Previous </button>&nbsp;

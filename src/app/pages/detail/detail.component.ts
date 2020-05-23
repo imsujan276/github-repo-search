@@ -14,11 +14,14 @@ export class DetailComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private apiService: ApiService
+    private apiService: ApiService,
   ) {
     this.activatedRoute.params.subscribe(data => {
       this.getRepositoryDetail(data['owner'], data['repository'])
     })
+  }
+
+  ngOnInit() {
   }
 
   getRepositoryDetail(owner, repository) {
@@ -49,7 +52,8 @@ export class DetailComponent implements OnInit {
     )
   }
 
-  ngOnInit() {
+  goBack(){
+
   }
 
 }
